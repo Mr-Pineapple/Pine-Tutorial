@@ -1,0 +1,6 @@
+{
+	"parent": "block/crop",
+	"textures": {
+		"crop": "pinetutorial:blocks/pepper_stage1"
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:stonecutting",
+	"ingredient": {
+		"item": "pinetutorial:tutorial_block"
+	},
+	"result": "pinetutorial:tutorial_item",
+	"count": 3
+}

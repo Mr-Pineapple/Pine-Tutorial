@@ -1,0 +1,6 @@
+{
+    "parent": "block/wall_inventory",
+    "textures": {
+        "wall": "pinetutorial:blocks/tutorial_block"
+    }
+}

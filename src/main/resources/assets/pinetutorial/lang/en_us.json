@@ -1,0 +1,24 @@
+{
+	"item.pinetutorial.tutorial_item": "Red Stick",
+	"block.pinetutorial.tutorial_block": "Tutorial Stone",
+	"block.pinetutorial.tutorial_slab": "Tutorial Slab",
+	"block.pinetutorial.tutorial_stairs": "Tutorial Stairs",
+	"block.pinetutorial.tutorial_wall": "Tutorial Wall",
+	
+	"block.pinetutorial.oil": "Oil",
+	"item.pinetutorial.oil_bucket": "Oil Bucket",
+	
+	"block.pinetutorial.pepper_crop": "Pepper",
+	"block.pinetutorial.ice_berry_bush": "Ice Berry Bush",
+	
+	"item.minecraft.potion.effect.more_health": "Potion of More Health",
+	"item.minecraft.splash_potion.effect.more_health": "Splash Potion of More Health",
+	"item.minecraft.tipped_arrow.effect.more_health": "Arrow of More Health",
+	"item.minecraft.lingering_potion.effect.more_health": "Lingering Potion of More Health",
+	
+	"item.pinetutorial.tutorial_fuel": "Tutorial Fuel",
+	
+	"itemGroup.tutorial_group": "Tutorial Item Group"
+	
+	
+}

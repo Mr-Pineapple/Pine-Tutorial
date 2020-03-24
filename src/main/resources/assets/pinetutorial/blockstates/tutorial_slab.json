@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "pinetutorial:block/tutorial_slab" },
+        "type=top": { "model": "pinetutorial:block/tutorial_slab_top" },
+        "type=double": { "model": "pinetutorial:block/tutorial_block" }
+    }
+}
