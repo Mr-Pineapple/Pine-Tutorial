@@ -2,16 +2,19 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "###",
-    "###",
+    "#A#",
     "###"
   ],
   "key": {
     "#": {
-      "item": "pinetutorial:tutorial_item"
+      "item": "minecraft:sand"
+    },
+    "A": {
+      "item": "minecraft:lantern"
     }
   },
  	"result": {
- 		"item": "pinetutorial:tutorial_block",
- 		"count": 9
+ 		"item": "minespansion:desert_lantern",
+ 		"count": 1
  	}
 }

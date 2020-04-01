@@ -9,10 +9,9 @@ public class TutorialFuelItem extends Item {
 		super(properties);
 	}
 	
-	
 	@Override
 	public int getBurnTime(ItemStack itemStack) {
 		return 200;
 	}
-	
+
 }

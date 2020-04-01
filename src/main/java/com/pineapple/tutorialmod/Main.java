@@ -52,14 +52,16 @@ public class Main
 		modEventBus.addListener(this::setup);
 		modEventBus.addListener(this::clientSetup);
 		
+		ItemList.ITEMS.register(modEventBus);
 		BlockList.BLOCKS.register(modEventBus);
 		BlockList.NO_ITEM_BLOCK.register(modEventBus);
-		ItemList.ITEMS.register(modEventBus);
 		PotionList.EFFECTS.register(modEventBus);
 		PotionList.POTIONS.register(modEventBus);
 		BiomeList.BIOMES.register(modEventBus);
 		PaintingList.PAINTING_TYPES.register(modEventBus);
 	}
+	
+	
 	
 	@SubscribeEvent
 	public static void createBlockItems(final RegistryEvent.Register<Item> event) {
@@ -71,6 +73,7 @@ public class Main
 			blockItem.setRegistryName(block.getRegistryName());
 			registry.register(blockItem);
 		});
+		
 	}
 	
 	@SubscribeEvent
@@ -87,6 +90,7 @@ public class Main
 	private void clientSetup(final FMLClientSetupEvent event)
 	{
 		RenderTypeLookup.setRenderLayer(BlockList.PEPPER_BUSH.get(), RenderType.getCutout());  //getCutout()
+		RenderTypeLookup.setRenderLayer(BlockList.TUTORIAL_DOOR.get(), RenderType.getCutout());
 	}
 	
 	public void onServerStarting(FMLServerStartingEvent event)

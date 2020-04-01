@@ -3,8 +3,10 @@ package com.pineapple.tutorialmod.lists;
 import com.pineapple.tutorialmod.Main;
 import com.pineapple.tutorialmod.objects.blocks.CustomStairsBlock;
 import com.pineapple.tutorialmod.objects.blocks.PepperCropsBlock;
+import com.pineapple.tutorialmod.objects.blocks.TutorialDoorBlock;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.WallBlock;
@@ -23,12 +25,13 @@ public class BlockList
 	public static final RegistryObject<Block> TUTORIAL_SLAB = BLOCKS.register("tutorial_slab", () -> new SlabBlock(Block.Properties.from(TUTORIAL_BLOCK.get())));
 	public static final RegistryObject<Block> TUTORIAL_STAIRS = BLOCKS.register("tutorial_stairs", () -> new CustomStairsBlock(TUTORIAL_BLOCK.get().getDefaultState(), Block.Properties.from(TUTORIAL_BLOCK.get())));
 	public static final RegistryObject<Block> TUTORIAL_WALL =BLOCKS.register("tutorial_wall", () -> new WallBlock(Block.Properties.from(TUTORIAL_BLOCK.get())));
-	
+	public static final RegistryObject<Block> TUTORIAL_DOOR = BLOCKS.register("tutorial_door", () -> new TutorialDoorBlock(Block.Properties.from(Blocks.OAK_DOOR)));
 	
 	
 	public static final DeferredRegister<Block> NO_ITEM_BLOCK = new DeferredRegister<>(ForgeRegistries.BLOCKS, Main.MOD_ID);
 	
 	public static final RegistryObject<Block> PEPPER_BUSH = NO_ITEM_BLOCK.register("pepper_crop", () -> new PepperCropsBlock(Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().sound(SoundType.PLANT)));
+	
 	
 	
 }
