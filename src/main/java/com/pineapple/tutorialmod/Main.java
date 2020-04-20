@@ -9,6 +9,7 @@ import com.pineapple.tutorialmod.lists.ItemList;
 import com.pineapple.tutorialmod.lists.PaintingList;
 import com.pineapple.tutorialmod.lists.PotionList;
 import com.pineapple.tutorialmod.world.PearlWorldType;
+import com.pineapple.tutorialmod.world.gen.TutorialGeneration;
 
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -85,6 +86,7 @@ public class Main
 	private void setup(final FMLCommonSetupEvent event)
 	{
 		PotionList.addBrewingRecipes();
+		TutorialGeneration.generate();
 	}
 	
 	private void clientSetup(final FMLClientSetupEvent event)
