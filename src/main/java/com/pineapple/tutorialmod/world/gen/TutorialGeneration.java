@@ -41,9 +41,9 @@ public class TutorialGeneration {
 	
 	
 	/*
-	 * If you want to create an ore for the end then you need to create a new fillerblock
+	 * If you want to create an ore for the end then you need to create a new fillerblock,
 	 * this is because there isn't one for endstone, as there is no naturally spawning
-	 * ore blocks inside of the end currently to do this, you need to call the fillerblocktype
+	 * ore blocks inside of the end currently, to do this, you need to call the fillerblocktype
 	 * class and use the .create() method.
 	 * 
 	 * 
