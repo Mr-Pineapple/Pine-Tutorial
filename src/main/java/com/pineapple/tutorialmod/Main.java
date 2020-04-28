@@ -11,6 +11,7 @@ import com.pineapple.tutorialmod.lists.PotionList;
 import com.pineapple.tutorialmod.world.PearlWorldType;
 import com.pineapple.tutorialmod.world.gen.TutorialGeneration;
 
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
@@ -86,7 +87,7 @@ public class Main
 	private void setup(final FMLCommonSetupEvent event)
 	{
 		PotionList.addBrewingRecipes();
-		TutorialGeneration.generate();
+		DeferredWorkQueue.runLater(TutorialGeneration::generate);
 	}
 	
 	private void clientSetup(final FMLClientSetupEvent event)
