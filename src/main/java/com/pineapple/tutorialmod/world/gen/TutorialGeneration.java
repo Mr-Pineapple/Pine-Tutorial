@@ -37,9 +37,6 @@ public class TutorialGeneration {
 		setupOreGeneration();
 		generateBushes();
 	}
-<<<<<<< HEAD
-=======
-	
 	
 	/*
 	 * If you want to create an ore for the end then you need to create a new fillerblock,
@@ -63,7 +60,5 @@ public class TutorialGeneration {
 	 * .create("end_stone", null, new BlockMatcher(Blocks.END_STONE)
 	 *
 	 */
-	
->>>>>>> d2bf6494d9034dfef325c24afe15ba8121bc4a6c
 
 }
