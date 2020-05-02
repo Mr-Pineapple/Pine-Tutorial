@@ -3,6 +3,7 @@ package com.pineapple.tutorialmod.lists;
 import com.pineapple.tutorialmod.Main;
 import com.pineapple.tutorialmod.objects.items.TooltipItem;
 import com.pineapple.tutorialmod.objects.items.TutorialFuelItem;
+import com.pineapple.tutorialmod.objects.items.TutorialMusicDisc;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -24,5 +25,6 @@ public class ItemList
 
 	public static final RegistryObject<Item> TOOLTIP_ITEM = ITEMS.register("tooltip_item", TooltipItem::new);
 	
+	public static final RegistryObject<Item> TUTORIAL_MUSIC_DISC = ITEMS.register("tutorial_disc", () -> new TutorialMusicDisc(1, SoundList.TUTORIAL_DISC_LAZY.get(), new Item.Properties().maxStackSize(1).group(Main.TUTORIAL_TAB)));
 	
 }

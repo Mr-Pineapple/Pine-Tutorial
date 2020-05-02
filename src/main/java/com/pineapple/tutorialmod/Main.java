@@ -8,6 +8,7 @@ import com.pineapple.tutorialmod.lists.BlockList;
 import com.pineapple.tutorialmod.lists.ItemList;
 import com.pineapple.tutorialmod.lists.PaintingList;
 import com.pineapple.tutorialmod.lists.PotionList;
+import com.pineapple.tutorialmod.lists.SoundList;
 import com.pineapple.tutorialmod.world.PearlWorldType;
 import com.pineapple.tutorialmod.world.gen.TutorialGeneration;
 
@@ -17,11 +18,17 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.potion.PotionUtils;
+import net.minecraft.potion.Potions;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -33,6 +40,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.IForgeRegistry;
 
+@SuppressWarnings("deprecation")
 @Mod(Main.MOD_ID)
 @EventBusSubscriber(modid = Main.MOD_ID, bus = Bus.MOD)
 public class Main
@@ -53,6 +61,7 @@ public class Main
 		modEventBus.addListener(this::setup);
 		modEventBus.addListener(this::clientSetup);
 		
+		SoundList.SOUNDS.register(modEventBus);
 		ItemList.ITEMS.register(modEventBus);
 		BlockList.BLOCKS.register(modEventBus);
 		BlockList.NO_ITEM_BLOCK.register(modEventBus);
@@ -85,14 +94,16 @@ public class Main
 	
 	private void setup(final FMLCommonSetupEvent event)
 	{
-		PotionList.addBrewingRecipes();
-		TutorialGeneration.generate();
+		BrewingRecipeRegistry.addRecipe(Ingredient.fromStacks(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), Potions.AWKWARD)), Ingredient.fromItems(ItemList.PEPPERS.get()), PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION),  PotionList.MORE_HEALTH_POTION.get()));
+		DeferredWorkQueue.runLater(TutorialGeneration::generate);
 	}
 	
 	private void clientSetup(final FMLClientSetupEvent event)
 	{
 		RenderTypeLookup.setRenderLayer(BlockList.PEPPER_BUSH.get(), RenderType.getCutout());  //getCutout()
 		RenderTypeLookup.setRenderLayer(BlockList.TUTORIAL_DOOR.get(), RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BlockList.FROSTBERRY_BUSH.get(), RenderType.getCutout());
+		
 	}
 	
 	public void onServerStarting(FMLServerStartingEvent event)

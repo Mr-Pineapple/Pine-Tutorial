@@ -15,5 +15,4 @@ public class KeyboardUtil {
 	public static boolean isHoldingShift() {
 		return InputMappings.isKeyDown(MINECRAFT_WINDOW, GLFW.GLFW_KEY_LEFT_SHIFT);
 	}
-	
 }

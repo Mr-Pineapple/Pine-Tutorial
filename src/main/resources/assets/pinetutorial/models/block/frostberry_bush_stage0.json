@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "pinetutorial:blocks/frostberry_bush_stage0"
+    }
+}

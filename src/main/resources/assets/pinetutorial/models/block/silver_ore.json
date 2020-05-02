@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "pinetutorial:blocks/polished_pearlstone"
+        "all": "pinetutorial:blocks/silver_ore"
     }
 }

@@ -1,0 +1,23 @@
+{
+	"item.tutorial_sound": {
+		"category": "item",
+		"subtitle": "item.tutorial_sound.sub",
+		"sounds": [
+			{
+				"name": "pinetutorial:item/tutorial_sound",
+				"stream": true
+			}
+		]
+	},
+	"item.tutorial_disc": {
+		"category": "item",
+		"subtitle": "item.tutorial_disc.sub",
+		"sounds": [
+			{
+				"name": "pinetutorial:item/tutorial_disc",
+				"stream": true
+			}
+		]
+	
+	}
+}

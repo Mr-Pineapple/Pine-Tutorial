@@ -4,21 +4,31 @@
 	"block.pinetutorial.tutorial_slab": "Tutorial Slab",
 	"block.pinetutorial.tutorial_stairs": "Tutorial Stairs",
 	"block.pinetutorial.tutorial_wall": "Tutorial Wall",
-	
-	"block.pinetutorial.oil": "Oil",
-	"item.pinetutorial.oil_bucket": "Oil Bucket",
+	"block.pinetutorial.tutorial_door": "Tutorial Door",
 	
 	"block.pinetutorial.pepper_crop": "Pepper",
-	"block.pinetutorial.ice_berry_bush": "Ice Berry Bush",
+	"block.pinetutorial.frostberry_bush": "Frost Berries",
 	
 	"item.minecraft.potion.effect.more_health": "Potion of More Health",
 	"item.minecraft.splash_potion.effect.more_health": "Splash Potion of More Health",
 	"item.minecraft.tipped_arrow.effect.more_health": "Arrow of More Health",
 	"item.minecraft.lingering_potion.effect.more_health": "Lingering Potion of More Health",
+	"effect.pinetutorial.more_health": "Gives Entities More Health",
 	
 	"item.pinetutorial.tutorial_fuel": "Tutorial Fuel",
+	"item.pinetutorial.tooltip_item": "Tooltip Item",
 	
-	"itemGroup.tutorial_group": "Tutorial Item Group"
+	"block.pinetutorial.silver_ore": "Silver Ore",
+	"item.pinetutorial.silver_ingot": "Silver Ingot",
+	
+	"itemGroup.tutorial_group": "Tutorial Item Group",
+	
+	"item.tutorial_sound": "Tutorial Sound",
+	"item.tutorial_sound.sub": "Tutorial Sound!",
+	
+	"item.pinetutorial.tutorial_disc": "Tutorial Music Disc",
+	"item.tutorial_disc.sub": "Tutorial Music"
+	
 	
 	
 }
