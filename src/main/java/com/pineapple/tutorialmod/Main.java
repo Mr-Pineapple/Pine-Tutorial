@@ -97,6 +97,10 @@ public class Main
 	private void setup(final FMLCommonSetupEvent event)
 	{
 		BrewingRecipeRegistry.addRecipe(Ingredient.fromStacks(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), Potions.AWKWARD)), Ingredient.fromItems(ItemList.PEPPERS.get()), PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION),  PotionList.MORE_HEALTH_POTION.get()));
+<<<<<<< HEAD
+=======
+		PotionList.addBrewingRecipes();
+>>>>>>> a2fa9c2f57ba6cb30e1a40ee5f9a9808ebcaa05b
 		DeferredWorkQueue.runLater(TutorialGeneration::generate);
 	}
 	
