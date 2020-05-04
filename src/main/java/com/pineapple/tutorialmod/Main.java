@@ -7,12 +7,12 @@ import com.pineapple.tutorialmod.lists.BiomeList;
 import com.pineapple.tutorialmod.lists.BlockList;
 import com.pineapple.tutorialmod.lists.ItemList;
 import com.pineapple.tutorialmod.lists.PaintingList;
+import com.pineapple.tutorialmod.lists.ParticleList;
 import com.pineapple.tutorialmod.lists.PotionList;
 import com.pineapple.tutorialmod.lists.SoundList;
 import com.pineapple.tutorialmod.world.PearlWorldType;
 import com.pineapple.tutorialmod.world.gen.TutorialGeneration;
 
-import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
@@ -62,6 +62,7 @@ public class Main
 		modEventBus.addListener(this::setup);
 		modEventBus.addListener(this::clientSetup);
 		
+		ParticleList.PARTICLES.register(modEventBus);
 		SoundList.SOUNDS.register(modEventBus);
 		ItemList.ITEMS.register(modEventBus);
 		BlockList.BLOCKS.register(modEventBus);
@@ -95,11 +96,7 @@ public class Main
 	
 	private void setup(final FMLCommonSetupEvent event)
 	{
-<<<<<<< HEAD
 		BrewingRecipeRegistry.addRecipe(Ingredient.fromStacks(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), Potions.AWKWARD)), Ingredient.fromItems(ItemList.PEPPERS.get()), PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION),  PotionList.MORE_HEALTH_POTION.get()));
-=======
-		PotionList.addBrewingRecipes();
->>>>>>> d2bf6494d9034dfef325c24afe15ba8121bc4a6c
 		DeferredWorkQueue.runLater(TutorialGeneration::generate);
 	}
 	

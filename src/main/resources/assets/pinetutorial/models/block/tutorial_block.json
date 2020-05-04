@@ -1,6 +1,7 @@
 {
-    "parent": "block/cube_all",
+    "parent": "pinetutorial:block/ctm",
     "textures": {
-        "all": "pinetutorial:blocks/tutorial_block"
+        "all": "pinetutorial:blocks/tutorial_block",
+        "base": "pinetutorial:blocks/tutorial_block_borderless"
     }
 }
