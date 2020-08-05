@@ -36,8 +36,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -46,6 +44,17 @@ import net.minecraftforge.registries.IForgeRegistry;
 @EventBusSubscriber(modid = Main.MOD_ID, bus = Bus.MOD)
 public class Main
 {
+	/*
+	 * This is our Main class. And without this nothing in our mod would work!
+	 * It's like the bread of a sandwich, you need it otherwise you don't have a sandwich.
+	 * 
+	 * We call everything here and add it to the EventBus so it can be registered to the game
+	 * We do lots of things in this class, which you could split of into separate classes and
+	 * call seperately (better for bigger mods), but for this we'll just call everything here.
+	 */
+	
+	
+	
 	public static Main instance;
 	public static final String MOD_ID = "pinetutorial";
 	public static final ItemGroup TUTORIAL_TAB = new Main.TutorialItemGroup("tutorial_group");
@@ -62,6 +71,7 @@ public class Main
 		modEventBus.addListener(this::setup);
 		modEventBus.addListener(this::clientSetup);
 		
+		/* Register all of our deferred registries from our list/init classes, which get added to the IEventBus */
 		ParticleList.PARTICLES.register(modEventBus);
 		SoundList.SOUNDS.register(modEventBus);
 		ItemList.ITEMS.register(modEventBus);
@@ -74,6 +84,9 @@ public class Main
 	}
 	
 	
+	/* In here we feed everything from our BLOCKS deferred register to make BlockItems for us.
+	 * Instead of using the filter, if we wanted special properties, we can just use the NO_ITEM_BLOCK
+	 */
 	
 	@SubscribeEvent
 	public static void createBlockItems(final RegistryEvent.Register<Item> event) {
@@ -88,37 +101,49 @@ public class Main
 		
 	}
 	
+	/* A registry event to register all biomes into the game */
 	@SubscribeEvent
 	public static void spawnBiomes(final RegistryEvent.Register<Biome> event) {
 		BiomeList.registerBiomes();
 	}
 	
-	
+	/* The FMLCommonSetupEvent (FML - Forge Mod Loader) */
 	private void setup(final FMLCommonSetupEvent event)
 	{
+		/* In the Brewing tutorial I couldn't find this method, so instead I reflected the one that vanilla uses - Use this instead */
 		BrewingRecipeRegistry.addRecipe(Ingredient.fromStacks(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION), Potions.AWKWARD)), Ingredient.fromItems(ItemList.PEPPERS.get()), PotionUtils.addPotionToItemStack(new ItemStack(Items.POTION),  PotionList.MORE_HEALTH_POTION.get()));
-
-		PotionList.addBrewingRecipes();
+		
+		/*
+		 * Here we call the public generate method from our Generation class.
+		 * You may notice that we don't call it directly, and that is because
+		 * Minecraft is not thread safe, so we can't add non-thread safe
+		 * variables anywhere we feel like.
+		 * 
+		 * Even though this class is deprecated, it is perfectly fine to use
+		 * deprecated just means that there is a new sytem in the works, but this
+		 * still works completely fine!
+		 */
 		DeferredWorkQueue.runLater(TutorialGeneration::generate);
 	}
 	
+	
+	/*
+	 * ClientSetup, this registers things we want on the client side that the
+	 * server doesn't really care about, like rendering layers and other stuff.
+	 */
 	private void clientSetup(final FMLClientSetupEvent event)
-	{
+	{	
 		RenderTypeLookup.setRenderLayer(BlockList.PEPPER_BUSH.get(), RenderType.getCutout());  //getCutout()
 		RenderTypeLookup.setRenderLayer(BlockList.TUTORIAL_DOOR.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockList.FROSTBERRY_BUSH.get(), RenderType.getCutout());
 		
 	}
 	
-	public void onServerStarting(FMLServerStartingEvent event)
-	{
-	}
 	
-	@SubscribeEvent
-	public static void loadEvent(FMLLoadCompleteEvent event) {
-			
-	}
-	
+	/*
+	 * This is an inner class, you don't need to do this but I have in this case
+	 * We are creating an ItemGroup (previously known as creative tabs)
+	 */	
 	public static class TutorialItemGroup extends ItemGroup {
 
 		public TutorialItemGroup(String name) {

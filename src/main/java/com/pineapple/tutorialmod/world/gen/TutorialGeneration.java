@@ -32,33 +32,22 @@ public class TutorialGeneration {
 							.withPlacement(Placement.COUNT_HEIGHTMAP_DOUBLE.configure(new FrequencyConfig(10))));
 		});
 	}
+	
+	
+	/*
+	 * Both of the private void methods add things to every biome...
+	 * Just using different techniques. The first one uses a common for loop, 
+	 * whilst the second one uses a fancy java 1.8 lambda expression!
+	 */
 
+	
+	/*
+	 * This method isn't 100% needed it's just so we can collect all the methods in this class, and then run them together
+	 * in setup. This means we don't need to call each method, we call them together, making it easier.
+	 */
 	public static void generate() {
 		setupOreGeneration();
 		generateBushes();
 	}
-	
-	/*
-	 * If you want to create an ore for the end then you need to create a new fillerblock,
-	 * this is because there isn't one for endstone, as there is no naturally spawning
-	 * ore blocks inside of the end currently, to do this, you need to call the fillerblocktype
-	 * class and use the .create() method.
-	 * 
-	 * 
-	 * This method takes in three parameters.
-	 * 
-	 * 
-	 * The first is the enumName (String) which is just the name of the type, (you can just call this the same as the end_stone)
-	 * 
-	 * The second is a String, which from what I can see isn't used in the class locally, and also isn't used by the others, so we can just set that to null
-	 *
-	 * The third parameter is a Java Predicated BlockState. To get this we can simply use a new BlockMatcher() which will take in the block, in this case Blocks.END_STONE
-	 *
-	 *	
-	 * Therefore the creation of it would look somewhat similar to this:
-	 * 
-	 * .create("end_stone", null, new BlockMatcher(Blocks.END_STONE)
-	 *
-	 */
 
 }

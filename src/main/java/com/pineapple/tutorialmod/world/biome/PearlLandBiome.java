@@ -15,7 +15,7 @@ public class PearlLandBiome extends Biome {
 		super(new Biome.Builder()
 				.surfaceBuilder(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BlockList.TUTORIAL_BLOCK.get().getDefaultState(), BlockList.TUTORIAL_BLOCK.get().getDefaultState(), BlockList.TUTORIAL_BLOCK.get().getDefaultState()))
 				.precipitation(RainType.RAIN)
-				.category(Category.PLAINS)
+				.category(Category.THEEND)
 				.downfall(0.3f)
 				.depth(0.125f)
 				.temperature(0.5f)
@@ -23,6 +23,11 @@ public class PearlLandBiome extends Biome {
 				.waterColor(0x047d53)
 				.waterFogColor(0x047d53)
 				.parent(null));
+		
+		/*
+		 * You could also take a look in DefaultBiomeFeatures and make your own, you could also add the berry bush
+		 * we made here instead of through main!
+		 */
 		
 		DefaultBiomeFeatures.addCarvers(this);
 		DefaultBiomeFeatures.addDefaultFlowers(this);

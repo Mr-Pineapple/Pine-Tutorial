@@ -4,25 +4,29 @@ import java.util.Random;
 
 import com.pineapple.tutorialmod.lists.ParticleList;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.OreBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class CustomOreBlock extends Block {
+public class CustomOreBlock extends OreBlock {
 
+	/*
+	 * We could extend Block, and use getExpDrop, but we can also extend OreBlock and use getExperience
+	 * In the long run it doesn't really matter what you do as all classes are loaded. 
+	 */
+	
 	public CustomOreBlock(Properties properties) {
 		super(properties);
 	}
+	
 	@Override
-	public int getExpDrop(BlockState state, IWorldReader world, BlockPos pos, int fortune, int silktouch) {
+	protected int getExperience(Random rand) {
 		return MathHelper.nextInt(RANDOM, 2, 10);
 	}
-	
 	
 	@OnlyIn(Dist.CLIENT)
 	   public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {

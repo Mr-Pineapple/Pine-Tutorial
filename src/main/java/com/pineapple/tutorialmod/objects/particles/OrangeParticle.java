@@ -13,6 +13,11 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class OrangeParticle extends SpriteTexturedParticle {
 
+	/*
+	 * Just like all other SpriteTexturedParticles this class is more or less copied, take a look at existing
+	 * particles and add change some numbers around until you get what you need!
+	 */
+	
 	protected OrangeParticle(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeedIn, double zSpeedIn) {
 		super(worldIn, xCoordIn, yCoordIn, zCoordIn, xSpeedIn, ySpeedIn, zSpeedIn);
 		

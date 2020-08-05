@@ -12,6 +12,10 @@ import net.minecraft.world.gen.OverworldGenSettings;
 
 public class PearlWorldType extends WorldType {
 
+	/*
+	 * This class is just so we could test to see if our biome worked, it isn't really needed as there are buffet worlds now.
+	 */
+	
 	public PearlWorldType() {
 		super("pearl_land_type");
 	}

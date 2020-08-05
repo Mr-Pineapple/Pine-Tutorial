@@ -11,6 +11,9 @@ public class KeyboardUtil {
 
 	private static final long MINECRAFT_WINDOW = Minecraft.getInstance().getMainWindow().getHandle();
 	
+	/*
+	 * Just a method that we made so we can easily know if the shift key is down anywhere
+	 */
 	@OnlyIn(Dist.CLIENT)
 	public static boolean isHoldingShift() {
 		return InputMappings.isKeyDown(MINECRAFT_WINDOW, GLFW.GLFW_KEY_LEFT_SHIFT);
