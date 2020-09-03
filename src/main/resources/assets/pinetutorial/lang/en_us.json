@@ -27,7 +27,11 @@
 	"item.tutorial_sound.sub": "Tutorial Sound!",
 	
 	"item.pinetutorial.tutorial_disc": "Tutorial Music Disc",
-	"item.tutorial_disc.sub": "Tutorial Music"
+	"item.tutorial_disc.sub": "Tutorial Music",
+	
+	"block.pinetutorial.model_block": "Model Block",
+	
+	"item.pinetutorial.rock": "Rock"
 	
 	
 	

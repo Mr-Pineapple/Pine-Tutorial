@@ -1,6 +1,7 @@
 package com.pineapple.tutorialmod.lists;
 
 import com.pineapple.tutorialmod.Main;
+import com.pineapple.tutorialmod.objects.items.RockItem;
 import com.pineapple.tutorialmod.objects.items.TooltipItem;
 import com.pineapple.tutorialmod.objects.items.TutorialFuelItem;
 
@@ -33,6 +34,7 @@ public class ItemList
 
 	public static final RegistryObject<Item> TOOLTIP_ITEM = ITEMS.register("tooltip_item", TooltipItem::new);
 	
+	public static final RegistryObject<Item> ROCK_ITEM = ITEMS.register("rock", () -> new RockItem(new Item.Properties().group(Main.TUTORIAL_TAB)));
 	
 	/* 
 	 * In the music disc tutorial I created a new class which extended the vanilla music disc

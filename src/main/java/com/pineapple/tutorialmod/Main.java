@@ -1,10 +1,13 @@
 package com.pineapple.tutorialmod;
 
+import java.util.function.Supplier;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.pineapple.tutorialmod.lists.BiomeList;
 import com.pineapple.tutorialmod.lists.BlockList;
+import com.pineapple.tutorialmod.lists.EntityList;
 import com.pineapple.tutorialmod.lists.ItemList;
 import com.pineapple.tutorialmod.lists.PaintingList;
 import com.pineapple.tutorialmod.lists.ParticleList;
@@ -13,8 +16,11 @@ import com.pineapple.tutorialmod.lists.SoundList;
 import com.pineapple.tutorialmod.world.PearlWorldType;
 import com.pineapple.tutorialmod.world.gen.TutorialGeneration;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraft.client.renderer.entity.SpriteRenderer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -31,6 +37,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -81,6 +88,7 @@ public class Main
 		PotionList.POTIONS.register(modEventBus);
 		BiomeList.BIOMES.register(modEventBus);
 		PaintingList.PAINTING_TYPES.register(modEventBus);
+		EntityList.ENTITIES.register(modEventBus);
 	}
 	
 	
@@ -137,6 +145,26 @@ public class Main
 		RenderTypeLookup.setRenderLayer(BlockList.TUTORIAL_DOOR.get(), RenderType.getCutout());
 		RenderTypeLookup.setRenderLayer(BlockList.FROSTBERRY_BUSH.get(), RenderType.getCutout());
 		
+		//Just call the method from below, and get the supplier from the event
+		registerEntityModels(event.getMinecraftSupplier());
+	}
+	
+	
+	/*
+	 * This is a helper method we are using just to save a little space in clientSetup
+	 * It takes in the Minecraft Supplier as a parameter, which can be called from the event
+	 */
+	private void registerEntityModels(Supplier<Minecraft> minecraft) {
+		//Just a variable I have set incase I want to add more entites, which will make the code more efficient
+		ItemRenderer renderer = minecraft.get().getItemRenderer();
+		
+		/*
+		 * We now need to render the entity on the client using the Rendering Registry
+		 * We take in the Entity then the RenderType. I use a lambda function here for ease.
+		 * Most projectiles will use SpriteRenderers for their rendering, using the same texture as the item
+		 * It taes in the manager from the lambda and the variable above for the item renderer.
+		 */
+		RenderingRegistry.registerEntityRenderingHandler(EntityList.ROCK_PROJETILE.get(), (renderManager) -> new SpriteRenderer<>(renderManager, renderer));
 	}
 	
 	
