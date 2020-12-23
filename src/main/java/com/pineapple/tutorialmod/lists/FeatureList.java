@@ -18,6 +18,7 @@ public class FeatureList {
 	/* This is a vanilla like BlockCluserFeatureConfig, used just like vanilla to call */
 	public static final BlockClusterFeatureConfig BUSH_CONFIG = (new BlockClusterFeatureConfig.Builder(
 			new SimpleBlockStateProvider(BUSH), new SimpleBlockPlacer()).tries(64)
-					.whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK.getBlock()))).func_227317_b_().build();
+					//whitelist
+					.func_227316_a_(ImmutableSet.of(Blocks.GRASS_BLOCK.getBlock()))).func_227317_b_().build();
 
 }
